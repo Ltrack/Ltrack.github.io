@@ -16,5 +16,12 @@ document.getElementById("take-screenshot").addEventListener("click", function() 
   canvas.height = videoElem.videoHeight;
   ctx.drawImage(videoElem, 0, 0, videoElem.videoWidth, videoElem.videoHeight);
   var dataURL = canvas.toDataURL('image/png');
-  // do something with dataURL here, e.g. display it in an img element
+
+  Tesseract.recognize(
+    dataURL,
+    'eng',
+    { logger: m => console.log(m) }
+  ).then(({ data: { text } }) => {
+    document.getElementById('ocr-result').innerText = text;
+  })
 });
