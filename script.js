@@ -25,4 +25,4 @@ document.getElementById("take-screenshot").addEventListener("click", function() 
     console.log('OCR Result:', text);
     document.getElementById('ocr-result').innerText = text;
   });
-});
+}); 
