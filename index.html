@@ -1,32 +1,19 @@
 <!DOCTYPE html>
 <html>
+<head>
+  <title>Screen Capture</title>
+  <style>
+    #canvas {
+      border: 1px solid black;
+      margin-top: 10px;
+    }
+  </style>
+</head>
 <body>
-    <button id="share-screen">Share Screen</button>
-    <button id="take-screenshot" disabled>Take Screenshot</button>
-    <video autoplay id="screen-view" style="display: none;"></video>
-    <canvas id="canvas"></canvas>
-
-    <script>
-        const videoElem = document.getElementById("screen-view");
-        const canvas = document.getElementById("canvas");
-        const ctx = canvas.getContext('2d');
-
-        document.getElementById("share-screen").addEventListener("click", async function() {
-            try {
-                videoElem.srcObject = await navigator.mediaDevices.getDisplayMedia();
-                document.getElementById("take-screenshot").disabled = false;
-            } catch (err) {
-                console.error("Error: " + err);
-            }
-        });
-
-        document.getElementById("take-screenshot").addEventListener("click", function() {
-            canvas.width = videoElem.videoWidth;
-            canvas.height = videoElem.videoHeight;
-            ctx.drawImage(videoElem, 0, 0, videoElem.videoWidth, videoElem.videoHeight);
-            var dataURL = canvas.toDataURL('image/png');
-            // do something with dataURL here, e.g. display it in an img element
-        });
-    </script>
+  <button id="share-screen">Share Screen</button>
+  <button id="take-screenshot" disabled>Take Screenshot</button>
+  <video autoplay id="screen-view" style="display: none;"></video>
+  <canvas id="canvas"></canvas>
+  <script src="script.js"></script>
 </body>
 </html>
