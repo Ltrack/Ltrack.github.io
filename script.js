@@ -24,5 +24,5 @@ document.getElementById("take-screenshot").addEventListener("click", function() 
   ).then(({ data: { text } }) => {
     console.log('OCR Result:', text);
     document.getElementById('ocr-result').innerText = text;
-  })
+  });
 });
