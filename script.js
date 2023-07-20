@@ -18,11 +18,12 @@ document.getElementById("take-screenshot").addEventListener("click", function() 
   var dataURL = canvas.toDataURL('image/png');
 
   Tesseract.recognize(
-    dataURL,
-    'eng',
-    { logger: m => console.log(m) }
-  ).then(({ data: { text } }) => {
-    document.getElementById('ocr-result').innerText = text;
-  })
+  dataURL,
+  'eng',
+  { logger: m => console.log(m) }
+).then(({ data: { text } }) => {
+  console.log('OCR Result:', text);  // Add this line
+  document.getElementById('ocr-result').innerText = text;
 });
+
 
