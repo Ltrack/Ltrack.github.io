@@ -25,3 +25,4 @@ document.getElementById("take-screenshot").addEventListener("click", function() 
     document.getElementById('ocr-result').innerText = text;
   })
 });
+
